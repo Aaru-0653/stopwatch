@@ -7,12 +7,78 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+  <div class="background-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+  
   <div class="stopwatch">
-    <div id="display">00:00:00</div>
+    <div class="header">
+      <h1 class="title">STOPWATCH</h1>
+      <div class="status-indicator" id="status">
+        <span class="status-dot"></span>
+        <span class="status-text">Ready</span>
+      </div>
+    </div>
+    
+    <div class="display-container">
+      <div class="time-segment">
+        <span id="hours">00</span>
+        <label>HRS</label>
+      </div>
+      <span class="separator">:</span>
+      <div class="time-segment">
+        <span id="minutes">00</span>
+        <label>MIN</label>
+      </div>
+      <span class="separator">:</span>
+      <div class="time-segment">
+        <span id="seconds">00</span>
+        <label>SEC</label>
+      </div>
+      <span class="separator milliseconds-separator">.</span>
+      <div class="time-segment milliseconds">
+        <span id="milliseconds">00</span>
+        <label>MS</label>
+      </div>
+    </div>
+    
     <div class="buttons">
-      <button id="start">Start</button>
-      <button id="stop">Stop</button>
-      <button id="reset">Reset</button>
+      <button id="start" class="btn btn-start">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <polygon points="5,3 19,12 5,21"></polygon>
+        </svg>
+        <span>Start</span>
+      </button>
+      <button id="stop" class="btn btn-stop" disabled>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <rect x="6" y="4" width="4" height="16"></rect>
+          <rect x="14" y="4" width="4" height="16"></rect>
+        </svg>
+        <span>Stop</span>
+      </button>
+      <button id="lap" class="btn btn-lap" disabled>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"></circle>
+          <polyline points="12,6 12,12 16,14" fill="none" stroke="currentColor" stroke-width="2"></polyline>
+        </svg>
+        <span>Lap</span>
+      </button>
+      <button id="reset" class="btn btn-reset">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"></path>
+        </svg>
+        <span>Reset</span>
+      </button>
+    </div>
+    
+    <div class="laps-container" id="lapsContainer">
+      <div class="laps-header">
+        <span class="laps-title">Laps</span>
+        <span class="laps-count" id="lapsCount">0</span>
+      </div>
+      <div class="laps-list" id="lapsList"></div>
     </div>
   </div>
 
